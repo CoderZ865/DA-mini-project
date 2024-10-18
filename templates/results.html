@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apriori Results</title>
+</head>
+<body>
+    <h1>Association Rules</h1>
+    {{ rules|safe }}
+
+    <h2>Visualized</h2>
+
+    <!-- Display each graph -->
+    <h3>Support vs Confidence</h3>
+    <img src="{{ url_for('static', filename='uploads/' + image1) }}" alt="Cluster_Distribution">
+    
+    <h3>Support vs Lift</h3>
+    <img src="{{ url_for('static', filename='uploads/' + image2) }}" alt="Rule_Counts">
+
+
+    <a href="/">Go Back</a>
+</body>
+</html>
