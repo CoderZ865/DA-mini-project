@@ -4,21 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apriori Results</title>
+    <style>
+        body {
+            background-color: #0e1117; /* Dark background */
+            color: #ffffff; /* Light text */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1, h2, h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2, h3 {
+            font-size: 1.8rem;
+        }
+
+        img {
+            max-width: 80%;
+            margin-bottom: 20px;
+            align-items: center;
+            border: 3px solid #ffffff;
+            border-radius: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff; /* Accent color */
+            background-color: #434b9e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 1.2rem;
+            margin: 80px auto 0; /* Center the button */
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #262c38;
+        }
+
+        .container {
+            max-width: 1000px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Association Rules</h1>
-    {{ rules|safe }}
+    <div class="container">
+        <h1>Association Rules</h1>
+        <div>
+            {{ rules|safe }}
+        </div>
 
-    <h2>Visualized</h2>
+        <h2>Visualized</h2>
 
-    <!-- Display each graph -->
-    <h3>Support vs Confidence</h3>
-    <img src="{{ url_for('static', filename='uploads/' + image1) }}" alt="Cluster_Distribution">
-    
-    <h3>Support vs Lift</h3>
-    <img src="{{ url_for('static', filename='uploads/' + image2) }}" alt="Rule_Counts">
+        <h3>Optimal K</h3>
+        <img src="{{ url_for('static', filename='uploads/' + image0) }}" alt="Optimal K">
 
+        <h3>Largest Rules Support</h3>
+        <img src="{{ url_for('static', filename='uploads/' + image1) }}" alt="Largest Rules Support">
 
-    <a href="/">Go Back</a>
+        <h3>Cluster Age Scatterplot</h3>
+        <img src="{{ url_for('static', filename='uploads/' + image2) }}" alt="Cluster Age Scatterplot">
+
+        <!-- Go Back button centered below the last graph -->
+         <div class="button">
+        <a href="/">Go Back</a>
+        </div>
+    </div>
 </body>
 </html>
